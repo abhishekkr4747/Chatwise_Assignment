@@ -1,23 +1,28 @@
-package com.example.chatwiseassignment.activities
+package com.example.chatwiseassignment.ui.ProductList
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.chatwiseassignment.ui.ChatwiseApplication
 import com.example.chatwiseassignment.R
-import com.example.chatwiseassignment.adapter.ProductListAdapter
 import com.example.chatwiseassignment.databinding.ActivityProductListBinding
 import com.example.chatwiseassignment.model.ApiResponse
 import com.example.chatwiseassignment.model.Product
+import com.example.chatwiseassignment.ui.ProductDetail.ProductDetailedActivity
 import com.example.chatwiseassignment.utils.Constants
+import javax.inject.Inject
 
 class ProductListActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProductListBinding
-    private val viewModel: ProductViewModel by viewModels()
+    lateinit var viewModel: ProductViewModel
+
+    @Inject
+    lateinit var productViewModelFactory: ProductViewModelFactory
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,12 +36,16 @@ class ProductListActivity : AppCompatActivity() {
             insets
         }
 
+        (application as ChatwiseApplication).applicationComponent.inject(this)
+
+        viewModel = ViewModelProvider(this, productViewModelFactory).get(ProductViewModel::class.java)
+
         viewModel.getDataFromApi()
         observeData()
     }
 
     private fun observeData() {
-        viewModel.response.observe(this) {
+        viewModel.productsLiveData.observe(this) {
             showDataOnScreen(it)
         }
     }

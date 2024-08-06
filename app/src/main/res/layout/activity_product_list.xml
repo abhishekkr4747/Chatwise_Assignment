@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:background="#F5F5F5"
-    tools:context=".activities.ProductListActivity">
+    tools:context=".ui.ProductList.ProductListActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_productList"

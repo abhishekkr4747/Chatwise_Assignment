@@ -1,4 +1,4 @@
-package com.example.chatwiseassignment.activities
+package com.example.chatwiseassignment.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.chatwiseassignment.R
 import com.example.chatwiseassignment.databinding.ActivityMainBinding
+import com.example.chatwiseassignment.ui.ProductList.ProductListActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

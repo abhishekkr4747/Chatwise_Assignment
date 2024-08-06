@@ -1,5 +1,5 @@
 // ImageAdapter.kt
-package com.example.chatwiseassignment.adapter
+package com.example.chatwiseassignment.ui.ProductDetail
 
 import android.content.Context
 import android.view.LayoutInflater

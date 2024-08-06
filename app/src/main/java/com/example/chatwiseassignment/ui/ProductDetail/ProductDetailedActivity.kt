@@ -1,4 +1,4 @@
-package com.example.chatwiseassignment.activities
+package com.example.chatwiseassignment.ui.ProductDetail
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -8,7 +8,6 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.chatwiseassignment.R
-import com.example.chatwiseassignment.adapter.ImageAdapter
 import com.example.chatwiseassignment.databinding.ActivityProductDetailedBinding
 import com.example.chatwiseassignment.model.Product
 import com.example.chatwiseassignment.utils.Constants
